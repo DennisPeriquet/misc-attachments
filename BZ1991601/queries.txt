@@ -1,0 +1,7 @@
+export GRAFANA_API_KEY=(redacted)
+
+#logcli --bearer-token="$GRAFANA_API_KEY" --tls-skip-verify --addr https://grafana-loki.ci.openshift.org/api/datasources/proxy/3/ query '{invoker="openshift-internal-ci/periodic-ci-openshift-release-master-ci-4.10-upgrade-from-stable-4.9-e2e-ovirt-upgrade/1498692901662625792"} | unpack| host="ovirt18-d6d8x-master-2"| pod_name="machine-config-daemon-qmgtp"' --since 240h --limit 10000 > machine-config-daemon-qmgtp.log
+
+#logcli --bearer-token="$GRAFANA_API_KEY" --tls-skip-verify --addr https://grafana-loki.ci.openshift.org/api/datasources/proxy/3/ query '{invoker="openshift-internal-ci/periodic-ci-openshift-release-master-ci-4.10-upgrade-from-stable-4.9-e2e-ovirt-upgrade/1498692901662625792"} | unpack| host="ovirt18-d6d8x-master-2"| container_name="sdn"' --since 240h --limit 10000 > container_sdn.log
+
+#logcli --bearer-token="$GRAFANA_API_KEY" --tls-skip-verify --addr https://grafana-loki.ci.openshift.org/api/datasources/proxy/3/ query '{invoker="openshift-internal-ci/periodic-ci-openshift-release-master-ci-4.10-upgrade-from-stable-4.9-e2e-ovirt-upgrade/1498692901662625792"} | unpack| host="ovirt18-d6d8x-master-2"| container_name="kube-rbac-proxy"' --since 240h --limit 10000 > container_kube_rbac_proxy.log
